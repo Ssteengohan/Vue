@@ -27,9 +27,6 @@ export default {
     </ul>
 
         <slot></slot>
-        <template #footer>
-         My footer goes here
-        </template>
   </Panel>
     `,
   props: {
