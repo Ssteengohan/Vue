@@ -1,14 +1,10 @@
 <script setup>
-import { useFlash } from '@/composables/useFlash';
-
-let { flash } = useFlash();
-
+import { useStorage } from "@/composables/useStorage";
+let food = useStorage("food", "tacos");
 </script>
 
 <template>
   <main>
-    <p>
-      <button @click="flash('Test', 'It Works!')">Click me</button>
-    </p>
- </main>
+    <p>What is your favorite food? <input type="text" v-model="food" /></p>
+  </main>
 </template>
