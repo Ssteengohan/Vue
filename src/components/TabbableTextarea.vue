@@ -1,29 +1,26 @@
 <script setup>
 defineProps({
-  modelValue: String,
+    modelValue: String
 });
 
-let emit = defineEmits(["update:modelValue"]);
+let emit = defineEmits(['update:modelValue']);
 
 function onTabPress(e) {
-  let textarea = e.target;
+    let t = e.target;
 
-  // get caret position/selection
-  let val = textarea.value,
-    start = textarea.selectionStart,
-    end = textarea.selectionEnd;
+    let val = t.value,
+        start = t.selectionStart,
+        end = t.selectionEnd;
 
-  // set textarea value to: text before caret + tab + text after caret
-  textarea.value = val.substring(0, start) + "\t" + val.substring(end);
+    t.value = val.substring(0, start) + "\t" + val.substring(end);
 
-  // put caret at right position again
-  textarea.selectionStart = textarea.selectionEnd = start + 1;
+    t.selectionStart = t.selectionEnd = start + 1;
 }
 </script>
+
 <template>
-  <textarea
-    @keydown.tab.prevent="onTabPress"
+    <textarea 
+    @keydown.tab.prevent="onTabPress" 
     @keyup="emit('update:modelValue', $event.target.value)"
-    v-text="modelValue"
-  />
+    v-text="modelValue" />
 </template>
