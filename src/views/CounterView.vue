@@ -3,8 +3,7 @@ import { counter } from "@/stores/counterStore";
 </script>
 <template>
   <div>
-    <p>
-      About page. The current count is {{ counter.count }}
-    </p>
+    <h1>{{ counter.count }}</h1>
+    <button @click="counter.increment">Increment</button>
   </div>
 </template>
